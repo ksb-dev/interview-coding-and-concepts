@@ -1,0 +1,24 @@
+Array is defined as an ordered set of similar data items. All the data items of an array are stored in 
+consecutive memory locations in RAM. The elements of an array are of same data type and each item 
+can be accessed using the same name.
+
+1. Traversing
+      Best case O(1) (If only single element)
+      Worst case O(N)
+
+2. Insertion
+      Best case O(1) (Insertion at last position)
+      Worst case O(N)
+
+3. Deletion
+      Best case O(1) (Deletion at last position)
+      Worst case O(N)
+
+4. Search
+      Best case O(1) (If element at first position)
+      Worst case O(N)
+
+5. Update O(1)
+
+--> Best for access operation
+--> We need to declare the size of array at the time of declaration

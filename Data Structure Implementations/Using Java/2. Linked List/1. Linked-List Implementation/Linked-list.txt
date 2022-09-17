@@ -1,0 +1,15 @@
+A singly linked list is a type of linked list that is unidirectional, that is, it can be traversed in only one direction from head to the last node (tail).
+
+1. Insertion 
+       At the end O(1)
+       At the beginning O(1)
+       In the middle O(n)
+
+2. Deletion 
+       At the end O(n)
+       At the beginning O(1)
+       In the middle O(n)
+
+3. Search
+       By value O(n) (O(1) if it is first element)
+       By index O(n) (O(1) if it is first element)

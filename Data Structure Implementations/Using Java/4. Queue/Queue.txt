@@ -1,0 +1,15 @@
+Using array
+
+OPERATION	BEST	AVERAGE	WORST	BEST	AVERAGE	WORST
+
+isEmpty()	O(1)	O(1)	O(1)	O(1)	O(1)	O(1)
+
+enqueue()	O(1)	O(N)	O(N)	O(1)	O(1)	O(1)
+
+dequeue()	O(1)	O(N)	O(N)	O(1)	O(1)	O(1)
+
+count()	        O(1)	O(N)	O(N)	O(1)	O(1)	O(1)
+
+peek()	        O(1)	O(1)	O(1)	O(1)	O(1)	O(1)
+
+show()	        O(1)	O(N)	O(N)	O(1)	O(1)	O(1)

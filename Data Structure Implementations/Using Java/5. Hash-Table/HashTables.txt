@@ -1,0 +1,8 @@
+Hash-Tables
+
+Uses
+
+1. Spell checkers
+2. Dictionaries
+3. Compilers 
+4. Code editors
