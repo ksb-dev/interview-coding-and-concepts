@@ -1,0 +1,9 @@
+USE sql_store;
+
+SELECT 
+    o.order_id,
+    c.first_name
+FROM orders o
+NATURAL JOIN customers c
+
+-- to use NATURAL JOIN both tables should have common column name    

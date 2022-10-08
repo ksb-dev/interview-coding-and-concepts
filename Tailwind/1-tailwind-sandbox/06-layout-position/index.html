@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>TailwindCSS</title>
+  </head>
+  <body class="m-6">
+    <p class="my-6  text-xl">Positioning</p>
+
+    <!-- Positioning -->
+    <div class="relative w-1/2 h-12 bg-orange-400 mb-6">
+      <p>Relative</p>
+      <div class="absolute bottom-1 right-1 bg-yellow-400">
+        absolute bottom-1 right-1
+      </div>
+    </div>
+
+    <!-- Top left corner -->
+    <div class="relative w-32 h-32 bg-blue-400 mb-6">
+      <div class="absolute left-0 top-0 bg-stone-300">absolute</div>
+    </div>
+
+    <!-- Top right corner -->
+
+    <!-- Bottom left corner -->
+
+    <!-- Bottom right corner -->
+
+    <!-- Span top edge -->
+    <div class="relative w-32 h-32 bg-blue-400 mb-6">
+      <div class="absolute inset-x-0 bg-stone-300">inset-x-0</div>
+    </div>
+
+    <!-- Span left edge -->
+    <div class="relative w-1/2 h-32 bg-blue-400 mb-6">
+      <div class="absolute inset-y-0 top-0 bg-stone-300">inset-y-0 & top-0</div>
+    </div>
+
+    <!-- Span right edge -->
+    <div class="relative w-1/2 h-32 bg-blue-400 mb-6">
+      <div class="absolute inset-y-0 top-0 right-0 bg-stone-300">
+        inset-y-0 & top-0 & right-0
+      </div>
+    </div>
+
+    <!-- Span bottom edge -->
+    <div class="relative w-1/2 h-32 bg-blue-400 mb-6">
+      <div class="absolute inset-x-0 bottom-0 bg-stone-300">
+        inset-x-0 & bottom-0
+      </div>
+    </div>
+
+    <!-- Display Classes -->
+    <div class="mb-6">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Excepturi optio
+      voluptatibus itaque
+      <span class="inline font-bold"> This is inline</span> quis tempore esse,
+      modi officia quas voluptatum, atque delectus error accusantium
+      <span class="inline-block font-bold"> This is inline block</span> ducimus
+      illo harum obcaecati molestias quae a dicta magni ut. Sequi, omnis. A
+      recusandae quam nobis sint facilis, cum provident reiciendis
+      <span class="block font-bold"> This is block</span> possimus officiis
+      pariatur facere? Quisquam, eos dolore. Tempora modi
+      <span class="hidden">This is hidden</span>architecto voluptatibus
+      quibusdam in aperiam necessitatibus laborum!
+    </div>
+
+    <!-- Z-Index -->
+    <div class="relative w-36 h-36 bg-black">
+      <div class="absolute w-24 h-24 top-1 left-1 bg-blue-500 z-10">z-10</div>
+      <div class="absolute w-24 h-24 top-6 left-8 bg-blue-400"></div>
+      <div class="absolute w-24 h-24 bottom-1 left-4 bg-blue-300 z-20">
+        z-20
+      </div>
+    </div>
+
+    <!-- Floats -->
+  </body>
+</html>
+
+<!-- Position Classes
+      static	    position: static;
+      fixed	      position: fixed;
+      absolute	  position: absolute;
+      relative	  position: relative;
+      sticky	    position: sticky;
+    -->
+
+<!-- Display Classes
+      block	            display: block;
+      inline-block	    display: inline-block;
+      inline	          display: inline;
+      flex	            display: flex;
+      inline-flex	      display: inline-flex;
+      table	            display: table;
+      grid	            display: grid;
+      inline-grid	      display: inline-grid;
+      contents	        display: contents;
+      list-item	        display: list-item;
+      hidden	          display: none;
+    -->
+
+<!-- Z-Index
+      z-0	    z-index: 0;
+      z-10	  z-index: 10;
+      z-20	  z-index: 20;
+      z-30	  z-index: 30;
+      z-40	  z-index: 40;
+      z-50	  z-index: 50;
+      z-auto	z-index: auto;
+    -->
+
+<!-- Float
+      float-right	  float: right;
+      float-left	  float: left;
+      float-none	  float: none;
+    -->
