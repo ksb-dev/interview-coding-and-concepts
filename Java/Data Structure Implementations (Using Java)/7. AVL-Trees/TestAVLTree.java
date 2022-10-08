@@ -19,5 +19,7 @@ public class TestAVLTree {
 		t.insert(15);*/
 
 		//t.print();
+
+		t.isBalanced();
 	}
 }

@@ -305,15 +305,15 @@ public class AVLTree {
 				return root;
 			}
 			else if(height(root.leftChild.leftChild) - height(root.leftChild.rightChild) < 0) {
-				System.out.println("Left rotate "+ root.leftChild.value);
+				//System.out.println("Left rotate "+ root.leftChild.value);
 				root.leftChild = leftRotate(root.leftChild);
-				System.out.println("root --> " + root.value + " root.leftChild --> " + root.leftChild.value);
+				//System.out.println("root --> " + root.value + " root.leftChild --> " + root.leftChild.value);
 			}
 
-			System.out.println("Right rotate "+ root.value);
+			//System.out.println("Right rotate "+ root.value);
 
 			AVLNode newRoot = rightRotate(root);
-			System.out.println("newRoot --> " + newRoot.value + " newRoot.leftChild --> " + newRoot.leftChild.value + " newRoot.rightChild --> " + newRoot.rightChild.value);
+			//System.out.println("newRoot --> " + newRoot.value + " newRoot.leftChild --> " + newRoot.leftChild.value + " newRoot.rightChild --> " + newRoot.rightChild.value);
 			return newRoot;
 		}
 		else if(balanceFactor < -1) {
@@ -321,15 +321,15 @@ public class AVLTree {
 				return root;
 			}
 			else if(height(root.rightChild.leftChild) - height(root.rightChild.rightChild) > 0) {
-				System.out.println("Right rotate "+ root.rightChild.value);
+				//System.out.println("Right rotate "+ root.rightChild.value);
 				root.rightChild = rightRotate(root.rightChild);
-				System.out.println("root --> " + root.value + " root.rightChild --> " + root.rightChild.value);
+				//System.out.println("root --> " + root.value + " root.rightChild --> " + root.rightChild.value);
 			}
 
-			System.out.println("Left rotate "+ root.value);
+			//System.out.println("Left rotate "+ root.value);
 
 			AVLNode newRoot = leftRotate(root);
-			System.out.println("newRoot --> " + newRoot.value + " newRoot.leftChild --> " + newRoot.leftChild.value + " newRoot.rightChild --> " + newRoot.rightChild.value);
+			//System.out.println("newRoot --> " + newRoot.value + " newRoot.leftChild --> " + newRoot.leftChild.value + " newRoot.rightChild --> " + newRoot.rightChild.value);
 			return newRoot;
 		}
 		return root;
@@ -373,6 +373,47 @@ public class AVLTree {
 			height(newRoot.rightChild)) + 1;
 
 		return newRoot;
+	}
+
+	public void isBalanced() {
+		int height = checkBalanced(root);
+
+		if (height > 0) {
+		    System.out.print("Tree is BALANCED & height is : "+height);
+		}
+		else {
+            System.out.print("Tree is NOT BALANCED & height is : "+height);
+		}
+	}
+
+	private int checkBalanced(AVLNode root) {
+		System.out.println("----------------------");
+
+		if (root == null)
+			return 0;
+
+		int leftHeight = checkBalanced(root.leftChild);
+
+		System.out.println("left height :" + leftHeight);
+
+		if (leftHeight == -1) {
+			return -1;
+		}
+
+		int rightHeight = checkBalanced(root.rightChild);
+
+		System.out.println("right height :" + rightHeight);
+
+		if (rightHeight == -1) {
+			return -1;
+		}
+
+		if (Math.abs(leftHeight - rightHeight) > 1) {
+			return -1;
+		}
+		else {
+		    return Math.max(leftHeight, rightHeight) + 1;
+	    }
 	}
 
 	public void print() {
