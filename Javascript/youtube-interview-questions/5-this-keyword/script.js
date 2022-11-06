@@ -1,4 +1,14 @@
 /*
+
+--> In an object method, this refers to the object.
+--> Alone, this refers to the global object.
+--> In a function, this refers to the global object.
+--> In a function, in strict mode, this is undefined.
+--> In an event, this refers to the element that received the event.
+
+*/
+
+/*
 Implicit Binding :
 
 Implicit Binding is applied when you invoke a function in an Object using the dot notation. 
@@ -258,6 +268,8 @@ object.method(callback, 1, 2)
 
 //  Write the implementation of this calc()
 
+/*
+
 var calc = {
   total: 0,
 
@@ -283,3 +295,5 @@ const result = calc
   .subtract(30)
   .add(10)
 console.log(result.total)
+
+*/
