@@ -144,6 +144,8 @@ console.log(person.getAge.bind(person2)()) // 24 extra () because bind returns g
 
 // -----------------------------------------------
 
+/*
+
 var status = '😎'
 
 setTimeout(function () {
@@ -160,3 +162,192 @@ setTimeout(function () {
   console.log(data.getStatus.call(this)) // 😎
   console.log(data.getStatus.bind(this)()) // 😎
 }, 0)
+
+*/
+
+// -----------------------------------------------
+
+/*
+
+const animals = [
+  { species: 'Lion', name: 'King' },
+  { species: 'Whale', name: 'Queen' }
+]
+
+function printAnimals (i) {
+  this.print = function () {
+    console.log('#' + i + ' ' + this.species + ': ' + this.name)
+  }
+  this.print()
+}
+
+// write printAnimals() in such a way that it prints all animals in object below.
+
+for (let i = 0; i < animals.length; i++) {
+  printAnimals.call(animals[i], i)
+}
+
+*/
+
+// -----------------------------------------------
+
+/*
+
+const array = ['a', 'b']
+const elements = [0, 1, 2]
+
+//array.push(elements)
+array.push.apply(array, elements)
+
+console.log(array)
+
+*/
+
+// -----------------------------------------------
+
+/*
+
+// Find min/max in an array and use apply to enhance a built-in function.
+
+const numbers = [5, 6, 2, 3, 7]
+
+let max = Math.max.apply(null, numbers)
+
+let min = Math.min.apply(null, numbers)
+
+console.log('Maximum : ' + max + ' & Minimum : ' + min)
+
+*/
+
+// -----------------------------------------------
+
+/*
+
+// IMPORTANT
+
+function f () {
+  console.log(this) // window object
+}
+
+let user = {
+  g: f.bind(null)
+}
+
+user.g()
+
+*/
+
+// -----------------------------------------------
+
+/*
+
+// IMPORTANT (Bind Chaining)
+
+function f () {
+  console.log(this.name)
+}
+
+f = f.bind({ name: 'Kedar' }).bind({ name: 'John' })
+
+f()
+
+*/
+
+// -----------------------------------------------
+
+/*
+
+const person = {
+  firstName: 'John',
+  lastName: 'Doe',
+  display: function () {
+    console.log(this.firstName + ' ' + this.lastName)
+  }
+}
+
+setTimeout(person.display, 1000) // undefined undefined
+
+setTimeout(function () {
+  person.display()
+}, 1000) // John Doe
+
+let f = person.display.bind(person)
+setTimeout(f, 1000) // John Doe
+
+*/
+
+// -----------------------------------------------
+
+/*
+
+let user = {
+  name: 'Kedar Babaleshwar',
+
+  loginSuccessful () {
+    console.log(`${this.name} logged in`)
+  },
+
+  loginFailed () {
+    console.log(`${this.name} failed to logged in`)
+  }
+}
+
+function checkPassword (success, failed) {
+  let password = prompt('Password ?', '')
+
+  if (password === 'Kedar') success()
+  else failed()
+}
+
+//checkPassword(user.loginSuccessful, user.loginFailed) // Fix this code
+
+checkPassword(user.loginSuccessful.bind(user), user.loginFailed.bind(user))
+
+*/
+
+// -----------------------------------------------
+
+/*
+
+// IMPORTANT
+
+let user = {
+  name: 'Kedar Babaleshwar',
+
+  login (result) {
+    console.log(this.name + (result ? ' login successful' : ' login failed'))
+  }
+}
+
+function checkPassword (success, failed) {
+  let password = prompt('Password ?', '')
+
+  if (password === 'Kedar') success()
+  else failed()
+}
+
+checkPassword(user.login.bind(user, true), user.login.bind(user, false))
+
+*/
+
+// -----------------------------------------------
+
+const age = 10
+
+let user = {
+  name: 'Thor',
+  age: 20,
+
+  getAge () {
+    console.log(this.age)
+  },
+
+  getAgeArror: () => {
+    console.log(this.age)
+  }
+}
+
+const person = { age: 30 }
+
+user.getAge.call(person) // 30
+user.getAgeArror.call(person) // undefined
