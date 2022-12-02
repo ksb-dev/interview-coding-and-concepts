@@ -21,17 +21,11 @@ class NumbersSmallerThanCurrent {
 		Map<Integer, Integer> map = new HashMap<>();
 		int[] copy = nums.clone();
 
-		System.out.println(Arrays.toString(copy));
-
 		Arrays.sort(copy);
-
-		System.out.println(Arrays.toString(copy));
 
 		for (int i = 0; i < nums.length; i++) {
 			map.putIfAbsent(copy[i], i);
 		}
-
-		System.out.println(map);
 
 		for (int i = 0; i < nums.length; i++) {
 			copy[i] = map.get(nums[i]);
