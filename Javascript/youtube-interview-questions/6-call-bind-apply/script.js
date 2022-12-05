@@ -58,7 +58,7 @@ const person2 = {
 console.log(person.fullName.call(person1)) // John Doe
 console.log(person.fullName.call(person2)) // Mary Doe
 
-// With call(), an object can use a method belonging to another object.
+// With apply(), an object can use a method belonging to another object.
 console.log(person.fullName.apply(person1)) // John Doe
 console.log(person.fullName.apply(person2)) // Mary Doe
 
@@ -332,6 +332,7 @@ checkPassword(user.login.bind(user, true), user.login.bind(user, false))
 
 // -----------------------------------------------
 
+/*
 const age = 10
 
 let user = {
@@ -351,3 +352,68 @@ const person = { age: 30 }
 
 user.getAge.call(person) // 30
 user.getAgeArror.call(person) // undefined
+
+// IMPORTANT
+let arr = [1, 2, 3]
+let res = { ...arr }
+
+console.log(arr)
+console.log(res)
+
+*/
+
+// -----------------------------------------------
+
+// Polyfill for call
+
+/*
+
+const employee = {
+  name: 'John'
+}
+
+function detail (designation, company) {
+  console.log(`${this.name} works in ${company} as a ${designation}`)
+}
+
+Function.prototype.myCall = function (context = {}, ...args) {
+  if (typeof this !== 'function') {
+    throw new Error(this + 'Not callable')
+  }
+  console.log(this)
+  //console.log((context.function = this))
+  context.function = this
+  context.function(...args)
+}
+
+//detail.call(employee, 'Full Stack Developer', 'Google')
+detail.myCall(employee, 'Full Stack Developer', 'Google')
+
+*/
+
+// -----------------------------------------------
+
+// Polyfill for apply
+
+const employee = {
+  name: 'John'
+}
+
+function detail (designation, company) {
+  console.log(`${this.name} works in ${company} as a ${designation}`)
+}
+
+Function.prototype.myApply = function (context = {}, args = []) {
+  if (typeof this !== 'function') {
+    throw new Error(this + 'Not callable')
+  }
+
+  if (!Array.isArray(args)) {
+    throw new Eroor('CreatelistFromArrayLike called on non-object')
+  }
+  context.function = this
+  context.function(...args)
+}
+
+//detail.apply(employee, ['Full Stack Developer', 'Google'])
+detail.myApply(employee, ['Full Stack Developer', 'Google'])
