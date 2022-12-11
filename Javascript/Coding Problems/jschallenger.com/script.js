@@ -305,3 +305,41 @@ console.log(myFunction(' think, therefore I am', 'I'))
 */
 
 // -----------------------------------------------------------
+
+/*
+function myFunction (set, val) {
+  // const myIterator = set.values()
+  // let s1 = new Set()
+
+  // for (const entry of myIterator) {
+  //   s1.add(entry)
+  // }
+
+  // s1.delete(val)
+
+  // return s1
+
+  set.delete(val)
+  return set
+}
+console.log(myFunction(new Set('12345'), '3'))
+console.log(myFunction(new Set([1, 2, 3]), 1))
+*/
+
+// -----------------------------------------------------------
+
+/*
+function myFunction (a, b) {
+  return a.getTime() === b.getTime()
+}
+
+console.log(new Date('2000/01/01 08:00:00'), new Date('2000/01/01 08:00:00'))
+console.log(new Date('2000/01/01 08:00:00'), new Date('2000/01/01 09:45:00'))
+*/
+
+// -----------------------------------------------------------
+
+function myFunction (a, n) {
+  return a.slice(a.length - n)
+  //return a.slice(-n);
+}
